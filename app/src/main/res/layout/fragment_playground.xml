@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageButton
+        android:id="@+id/home_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintBottom_toTopOf="@id/container"
+        app:layout_constraintEnd_toStartOf="@+id/score_tv"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/score_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Score"
+        app:layout_constraintBottom_toBottomOf="@+id/home_btn"
+        app:layout_constraintEnd_toStartOf="@id/timer_tv"
+        app:layout_constraintStart_toEndOf="@+id/home_btn"
+        app:layout_constraintTop_toTopOf="@+id/home_btn" />
+
+    <TextView
+        android:id="@+id/timer_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0:0"
+        app:layout_constraintBottom_toBottomOf="@+id/score_tv"
+        app:layout_constraintEnd_toStartOf="@+id/voice_btn"
+        app:layout_constraintStart_toEndOf="@id/score_tv"
+        app:layout_constraintTop_toTopOf="@+id/score_tv" />
+
+    <ImageButton
+        android:id="@+id/voice_btn"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/timer_tv"
+        app:layout_constraintTop_toTopOf="@+id/home_btn" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/container"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_btn"
+        app:layout_constraintWidth_percent=".9">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic1"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:tag="1"
+            app:layout_constraintBottom_toTopOf="@id/pic4"
+            app:layout_constraintEnd_toStartOf="@+id/pic2"
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintHorizontal_chainStyle="spread"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic2"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="2"
+            app:layout_constraintBottom_toTopOf="@id/pic5"
+            app:layout_constraintEnd_toStartOf="@+id/pic3"
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintStart_toEndOf="@+id/pic1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic3"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="3"
+            app:layout_constraintBottom_toTopOf="@id/pic6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintStart_toEndOf="@+id/pic2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic4"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="4"
+            app:layout_constraintBottom_toTopOf="@id/pic7"
+            app:layout_constraintEnd_toStartOf="@+id/pic5"
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pic1"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic5"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="5"
+            app:layout_constraintBottom_toTopOf="@id/pic8"
+            app:layout_constraintEnd_toStartOf="@+id/pic6"
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintStart_toEndOf="@+id/pic4"
+            app:layout_constraintTop_toBottomOf="@+id/pic2"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic6"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="6"
+            app:layout_constraintBottom_toTopOf="@id/pic9"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintStart_toEndOf="@+id/pic5"
+            app:layout_constraintTop_toBottomOf="@+id/pic3"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic7"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="7"
+            app:layout_constraintBottom_toTopOf="@id/pic10"
+            app:layout_constraintEnd_toStartOf="@+id/pic8"
+
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pic4"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic8"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="8"
+            app:layout_constraintBottom_toTopOf="@id/pic11"
+
+            app:layout_constraintEnd_toStartOf="@+id/pic9"
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintStart_toEndOf="@+id/pic7"
+            app:layout_constraintTop_toBottomOf="@+id/pic5"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic9"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="9"
+            app:layout_constraintBottom_toTopOf="@id/pic12"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintStart_toEndOf="@+id/pic8"
+            app:layout_constraintTop_toBottomOf="@+id/pic6"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic10"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/pic11"
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pic7"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic11"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="11"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/pic12"
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintStart_toEndOf="@+id/pic10"
+            app:layout_constraintTop_toBottomOf="@+id/pic8"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/pic12"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:tag="12"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".22"
+            app:layout_constraintStart_toEndOf="@+id/pic11"
+            app:layout_constraintTop_toBottomOf="@+id/pic9"
+            app:layout_constraintWidth_percent=".3"
+            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
+            app:srcCompat="@drawable/brain" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
