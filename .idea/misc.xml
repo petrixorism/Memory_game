@@ -3,9 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_background.xml" value="0.3675" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_planet_02.xml" value="0.3675" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_planet_11.xml" value="0.3675" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_question_mark.xml" value="0.3675" />
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/activity_main.xml" value="0.2712962962962963" />
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_home.xml" value="0.2712962962962963" />
-        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_playground.xml" value="0.33" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_playground.xml" value="0.5" />
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_splash.xml" value="0.2712962962962963" />
       </map>
     </option>

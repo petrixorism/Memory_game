@@ -15,7 +15,6 @@ class GameAnimation {
     fun animateFlipOut(imageView: View, image: Int) {
         imageView as ImageView
         GlobalScope.launch(Dispatchers.Main) {
-            imageView.rotationY = 0f
             ValueAnimator.ofFloat(0f, 180f).apply {
                 addUpdateListener {
                     imageView.rotationY = animatedValue as Float
@@ -25,16 +24,16 @@ class GameAnimation {
                 start()
             }
             delay(500L)
-
             imageView.setImageResource(image)
-
         }
     }
 
-    fun animateFlipIn(imageView: View) {
+    fun animateFlipIn(imageView: View, time: Long) {
+
         imageView as ImageView
         GlobalScope.launch(Dispatchers.Main) {
-            ValueAnimator.ofFloat(0f, 180f).apply {
+            delay(time)
+            ValueAnimator.ofFloat(180f, 360f).apply {
                 addUpdateListener {
                     imageView.rotationY = animatedValue as Float
                 }
@@ -43,13 +42,15 @@ class GameAnimation {
                 start()
             }
             delay(500L)
-            imageView.setImageResource(R.drawable.brain)
+            imageView.setImageResource(R.drawable.ic_question_mark)
 
         }
     }
+
 
     fun animateZoomIn(view: View) {
         GlobalScope.launch(Dispatchers.Main) {
+            delay(1000L)
             ValueAnimator.ofFloat(view.scaleX, 0f).apply {
                 addUpdateListener {
                     view.alpha = animatedValue as Float
