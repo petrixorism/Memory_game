@@ -2,12 +2,16 @@ package uz.gita.memorygame.ui
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.ImageView
 import androidx.core.view.children
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.lifecycleScope
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import uz.gita.memorygame.R
 import uz.gita.memorygame.animation.GameAnimation
 import uz.gita.memorygame.databinding.FragmentPlaygroundBinding
@@ -16,10 +20,8 @@ class PlaygroundFragment : Fragment(R.layout.fragment_playground) {
 
     private val binding by viewBinding(FragmentPlaygroundBinding::bind)
     private val animator by lazy { GameAnimation() }
-
-    var isFlipped = true
-    var canAnimate = true
-    var hits = 0
+    private var hits = 0
+    private var time = 0
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -37,21 +39,43 @@ class PlaygroundFragment : Fragment(R.layout.fragment_playground) {
 
         binding.homeBtn.setOnClickListener {
             setImages()
+            time = 0
         }
 
         setImages()
+        setTimer()
+
+    }
+
+    private fun setTimer() = lifecycleScope.launch {
+
+
+        while (true) {
+            delay(1000L)
+            time++
+            val timeText = "${time / 60}:${time % 60}"
+            binding.timerTv.setText(timeText)
+        }
+
 
     }
 
 
     @SuppressLint("UseCompatLoadingForDrawables")
     private fun setImages() {
-        val images = getList()
+        hits = 0
+        var images = getList()
+
         var counter = 0
         var ind = -1
         var selectedImage: ImageView? = null
 
+        resetImages()
+
         binding.container.children.forEachIndexed { index, view ->
+
+            Log.d("TAGDF", "setImages: ${view.scaleX}")
+            Log.d("TAGDF", "setImages: ${view.scaleY}")
 
             view.setOnClickListener {
                 it as ImageView
@@ -105,6 +129,21 @@ class PlaygroundFragment : Fragment(R.layout.fragment_playground) {
 
     }
 
+    private fun resetImages() {
+        binding.container.children.forEach {
+            it as ImageView
+            it.apply {
+                scaleX = 1f
+                scaleY = 1f
+                alpha = 1f
+                setImageResource(R.drawable.ic_question_mark)
+                tag = "close"
+                rotationY = 0f
+            }
+
+
+        }
+    }
 
     private fun getList(): ArrayList<Int> {
         val list = ArrayList<Int>()
