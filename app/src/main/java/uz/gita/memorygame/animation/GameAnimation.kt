@@ -2,6 +2,7 @@ package uz.gita.memorygame.animation
 
 import android.animation.ValueAnimator
 import android.view.View
+import android.view.View.VISIBLE
 import android.view.animation.AnticipateOvershootInterpolator
 import android.widget.ImageView
 import kotlinx.coroutines.Dispatchers
@@ -51,16 +52,34 @@ class GameAnimation {
     fun animateZoomIn(view: View) {
         GlobalScope.launch(Dispatchers.Main) {
             delay(1000L)
-            ValueAnimator.ofFloat(view.scaleX, 0f).apply {
+            ValueAnimator.ofFloat(1f, 0f).apply {
                 addUpdateListener {
-                    view.alpha = animatedValue as Float
                     view.scaleX = animatedValue as Float
                     view.scaleY = animatedValue as Float
+                    view.alpha = animatedValue as Float
                 }
                 duration = 1000L
                 interpolator = AnticipateOvershootInterpolator()
                 start()
             }
+
+        }
+    }
+
+    fun animateZoomOut(view: View) {
+        GlobalScope.launch(Dispatchers.Main) {
+            ValueAnimator.ofFloat(0f, 1f).apply {
+                addUpdateListener {
+                    view.alpha = animatedValue as Float
+                    view.scaleX = animatedValue as Float
+                    view.scaleY = animatedValue as Float
+                    view.visibility = VISIBLE
+                }
+                duration = 500L
+                interpolator = AnticipateOvershootInterpolator()
+                start()
+            }
+
         }
     }
 

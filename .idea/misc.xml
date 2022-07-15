@@ -3,14 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2735" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/corner_ripple.xml" value="0.3665" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_back.xml" value="0.3675" />
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_background.xml" value="0.3675" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_button.xml" value="0.3675" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_button_blue.xml" value="0.322" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_button_light.xml" value="0.3455" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_button_pressed.xml" value="0.3675" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_dialog.xml" value="0.3675" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_home.xml" value="0.2735" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2735" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_planet_01.xml" value="0.2735" />
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_planet_02.xml" value="0.3675" />
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_planet_11.xml" value="0.3675" />
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_question_mark.xml" value="0.3675" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_sound_off.xml" value="0.2735" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_voice.xml" value="0.2735" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/ic_yellow_btn.xml" value="0.3675" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/sound_selector.xml" value="0.2735" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/drawable/stroke_bg.xml" value="0.3665" />
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/activity_main.xml" value="0.2712962962962963" />
-        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_home.xml" value="0.2712962962962963" />
-        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_playground.xml" value="0.5" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_leaderboards.xml" value="0.25" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_playground.xml" value="0.18" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_playground_a.xml" value="0.33" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_playground_hard.xml" value="0.22" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_playground_medium.xml" value="0.25" />
         <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/fragment_splash.xml" value="0.2712962962962963" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/leaderboard_item.xml" value="0.3224461431549687" />
+        <entry key="..\:/Users/CyberArea/AndroidStudioProjects/Memorygame/app/src/main/res/layout/win_dialog.xml" value="0.18" />
       </map>
     </option>
   </component>

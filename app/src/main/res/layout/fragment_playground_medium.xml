@@ -16,13 +16,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:lottie_autoPlay="true"
         app:lottie_loop="true"
-        app:lottie_rawRes="@raw/space_1" />
+        app:lottie_rawRes="@raw/space_1"
+        app:lottie_speed=".5" />
 
     <com.airbnb.lottie.LottieAnimationView
         android:id="@+id/confetti_lottie"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,13 +31,12 @@
         app:lottie_loop="false"
         app:lottie_rawRes="@raw/confetti_pop" />
 
-
     <ImageButton
         android:id="@+id/home_btn"
         android:layout_width="40dp"
+        android:layout_marginTop="32dp"
         android:layout_height="40dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
         android:background="@drawable/ic_home"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -51,15 +50,16 @@
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/home_btn"
-        app:layout_constraintEnd_toStartOf="@id/chronometer"
+        app:layout_constraintEnd_toStartOf="@id/timer_tv"
         app:layout_constraintStart_toEndOf="@+id/home_btn"
         app:layout_constraintTop_toTopOf="@+id/home_btn" />
 
-    <Chronometer
-        android:id="@+id/chronometer"
+    <TextView
+        android:id="@+id/timer_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/meta_pro_normal"
+        android:text="00:00"
         android:textColor="@color/white"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/score_tv"
@@ -78,36 +78,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/home_btn" />
 
-
-
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="16dp"
+        android:layout_margin="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHeight_percent=".8"
+        app:layout_constraintHeight_percent=".7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/home_btn">
+        app:layout_constraintTop_toBottomOf="@+id/home_btn"
+        app:layout_constraintWidth_percent=".9">
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic1"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic4"
-            app:layout_constraintEnd_toStartOf="@id/pic2"
+            app:layout_constraintBottom_toTopOf="@id/pic5"
+            app:layout_constraintEnd_toStartOf="@+id/pic2"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintHorizontal_chainStyle="spread"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
 
@@ -115,493 +112,310 @@
             android:id="@+id/pic2"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic5"
-            app:layout_constraintEnd_toStartOf="@id/pic3"
-            app:layout_constraintStart_toEndOf="@id/pic1"
+            app:layout_constraintBottom_toTopOf="@id/pic6"
+            app:layout_constraintEnd_toStartOf="@+id/pic3"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic1"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic3"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="16dp"
-
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic6"
-            app:layout_constraintEnd_toStartOf="@id/pic13"
-            app:layout_constraintStart_toEndOf="@id/pic2"
+            app:layout_constraintBottom_toTopOf="@id/pic7"
+            app:layout_constraintEnd_toStartOf="@id/pic4"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic2"
             app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic4"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
-
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic7"
-            app:layout_constraintEnd_toStartOf="@id/pic5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pic1"
+            app:layout_constraintBottom_toTopOf="@id/pic8"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@+id/pic3"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic5"
             android:layout_width="0dp"
             android:layout_height="0dp"
-
-            android:layout_margin="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic8"
-            app:layout_constraintEnd_toStartOf="@id/pic6"
-            app:layout_constraintStart_toEndOf="@id/pic4"
-            app:layout_constraintTop_toBottomOf="@id/pic2"
+            app:layout_constraintBottom_toTopOf="@id/pic9"
+            app:layout_constraintEnd_toStartOf="@+id/pic6"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pic1"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic6"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-
             app:layout_constraintBottom_toTopOf="@id/pic9"
-            app:layout_constraintEnd_toStartOf="@id/pic14"
-            app:layout_constraintStart_toEndOf="@id/pic5"
-            app:layout_constraintTop_toBottomOf="@id/pic3"
+            app:layout_constraintEnd_toStartOf="@id/pic7"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic5"
+            app:layout_constraintTop_toBottomOf="@+id/pic2"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic7"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp"
-
-            android:layout_marginBottom="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic10"
-            app:layout_constraintEnd_toStartOf="@id/pic8"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pic4"
+            app:layout_constraintBottom_toTopOf="@id/pic11"
+            app:layout_constraintEnd_toStartOf="@+id/pic8"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@id/pic6"
+            app:layout_constraintTop_toBottomOf="@+id/pic3"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic8"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="2dp"
-            android:alpha="0"
-
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic11"
-            app:layout_constraintEnd_toStartOf="@id/pic9"
-            app:layout_constraintStart_toEndOf="@id/pic7"
-            app:layout_constraintTop_toBottomOf="@id/pic5"
+            app:layout_constraintBottom_toTopOf="@id/pic12"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic7"
+            app:layout_constraintTop_toBottomOf="@+id/pic4"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic9"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="2dp"
-
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic12"
-            app:layout_constraintEnd_toStartOf="@id/pic15"
-            app:layout_constraintStart_toEndOf="@id/pic8"
-            app:layout_constraintTop_toBottomOf="@id/pic6"
-
+            app:layout_constraintBottom_toTopOf="@id/pic13"
+            app:layout_constraintEnd_toStartOf="@id/pic10"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pic5"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic10"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
-
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic17"
-
-            app:layout_constraintEnd_toStartOf="@id/pic11"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pic7"
+            app:layout_constraintBottom_toTopOf="@id/pic14"
+            app:layout_constraintEnd_toStartOf="@+id/pic11"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toEndOf="@id/pic9"
+            app:layout_constraintTop_toBottomOf="@+id/pic6"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic11"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="2dp"
-
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic18"
-            app:layout_constraintEnd_toStartOf="@id/pic12"
-            app:layout_constraintStart_toEndOf="@id/pic10"
-            app:layout_constraintTop_toBottomOf="@id/pic8"
-
+            app:layout_constraintBottom_toTopOf="@id/pic15"
+            app:layout_constraintEnd_toStartOf="@+id/pic12"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic10"
+            app:layout_constraintTop_toBottomOf="@+id/pic7"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic12"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="2dp"
-            android:alpha="0"
-
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-
-            app:layout_constraintBottom_toTopOf="@id/pic19"
-            app:layout_constraintEnd_toStartOf="@id/pic16"
-            app:layout_constraintStart_toEndOf="@id/pic11"
-            app:layout_constraintTop_toBottomOf="@id/pic9"
-
+            app:layout_constraintBottom_toTopOf="@id/pic16"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic11"
+            app:layout_constraintTop_toBottomOf="@+id/pic8"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic13"
             android:layout_width="0dp"
             android:layout_height="0dp"
-
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
-
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic14"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/pic3"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/pic17"
+            app:layout_constraintEnd_toStartOf="@id/pic14"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/pic9"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic14"
             android:layout_width="0dp"
             android:layout_height="0dp"
-
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="2dp"
-
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic15"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/pic6"
-            app:layout_constraintTop_toBottomOf="@id/pic13"
+            app:layout_constraintBottom_toTopOf="@id/pic18"
+            app:layout_constraintEnd_toStartOf="@id/pic15"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic13"
+            app:layout_constraintTop_toBottomOf="@+id/pic10"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic15"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="2dp"
-
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="2dp"
-            android:alpha="0"
-
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic16"
-
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/pic9"
-            app:layout_constraintTop_toBottomOf="@id/pic14"
+            app:layout_constraintBottom_toTopOf="@id/pic19"
+            app:layout_constraintEnd_toStartOf="@id/pic16"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic14"
+            app:layout_constraintTop_toBottomOf="@+id/pic11"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic16"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="2dp"
-
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
-
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
             app:layout_constraintBottom_toTopOf="@id/pic20"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/pic12"
-            app:layout_constraintTop_toBottomOf="@id/pic15"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic15"
+            app:layout_constraintTop_toBottomOf="@+id/pic12"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic17"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="2dp"
-
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic21"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/pic18"
+            app:layout_constraintHeight_percent=".18"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pic10"
+            app:layout_constraintTop_toBottomOf="@+id/pic13"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic18"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="2dp"
-
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic22"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/pic19"
-            app:layout_constraintStart_toEndOf="@id/pic17"
-            app:layout_constraintTop_toBottomOf="@id/pic11"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic17"
+            app:layout_constraintTop_toBottomOf="@+id/pic14"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic19"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_margin="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
-
-            app:layout_constraintBottom_toTopOf="@id/pic23"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/pic20"
-            app:layout_constraintStart_toEndOf="@id/pic18"
-            app:layout_constraintTop_toBottomOf="@id/pic12"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic18"
+            app:layout_constraintTop_toBottomOf="@+id/pic15"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
         <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/pic20"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="2dp"
-            android:alpha="0"
             android:background="@drawable/ic_background"
             android:tag="close"
-            android:visibility="gone"
-
-            app:contentPadding="8dp"
-            app:layout_constraintBottom_toTopOf="@id/pic24"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/pic19"
-            app:layout_constraintTop_toBottomOf="@id/pic16"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
-            app:srcCompat="@drawable/ic_question_mark" />
-
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/pic21"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="2dp"
-            android:layout_marginBottom="16dp"
-            android:alpha="0"
-            android:background="@drawable/ic_background"
-            android:tag="close"
-            android:visibility="gone"
-            app:contentPadding="8dp"
-
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/pic22"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/pic17"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
-            app:srcCompat="@drawable/ic_question_mark" />
-
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/pic22"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginHorizontal="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="16dp"
-            android:alpha="0"
-            android:background="@drawable/ic_background"
-            android:tag="close"
-            android:visibility="gone"
-
-            app:contentPadding="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/pic23"
-            app:layout_constraintStart_toEndOf="@id/pic21"
-            app:layout_constraintTop_toBottomOf="@id/pic18"
-
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
-            app:srcCompat="@drawable/ic_question_mark" />
-
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/pic23"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginHorizontal="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="16dp"
-            android:alpha="0"
-            android:background="@drawable/ic_background"
-            android:tag="close"
-            android:visibility="gone"
-
-            app:contentPadding="8dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/pic24"
-            app:layout_constraintStart_toEndOf="@id/pic22"
-            app:layout_constraintTop_toBottomOf="@id/pic19"
-            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
-            app:srcCompat="@drawable/ic_question_mark" />
-
-
-        <com.google.android.material.imageview.ShapeableImageView
-            android:id="@+id/pic24"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="2dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:alpha="0"
-            android:background="@drawable/ic_background"
-            android:tag="close"
-            android:visibility="gone"
             app:contentPadding="8dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/pic23"
-            app:layout_constraintTop_toBottomOf="@id/pic20"
+            app:layout_constraintHeight_percent=".18"
+            app:layout_constraintStart_toEndOf="@+id/pic19"
+            app:layout_constraintTop_toBottomOf="@+id/pic16"
+            app:layout_constraintWidth_percent=".22"
             app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize16dp"
             app:srcCompat="@drawable/ic_question_mark" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
