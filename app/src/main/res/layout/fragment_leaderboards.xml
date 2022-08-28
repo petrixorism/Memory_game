@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/violet_light">
+    android:background="@color/violet">
 
 
     <com.airbnb.lottie.LottieAnimationView
@@ -21,7 +21,7 @@
         app:lottie_rawRes="@raw/space_1" />
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -33,13 +33,74 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/no_leaderboard_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha=".5"
+        android:fontFamily="@font/meta_pro_normal"
+        android:text="No Leaderboard List"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/easy_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/ic_button_blue"
+        android:fontFamily="@font/meta_pro_bold"
+        android:text="Easy"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/leaderboard_rv"
+        app:layout_constraintEnd_toStartOf="@id/medium_btn"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/title_tv"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/medium_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_button_blue"
+        android:fontFamily="@font/meta_pro_bold"
+        android:text="Medium"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/easy_btn"
+        app:layout_constraintEnd_toStartOf="@+id/hard_btn"
+        app:layout_constraintStart_toEndOf="@+id/easy_btn"
+        app:layout_constraintTop_toTopOf="@+id/easy_btn"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/hard_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/ic_button_blue"
+        android:fontFamily="@font/meta_pro_bold"
+        android:text="Hard"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/easy_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/medium_btn"
+        app:layout_constraintTop_toTopOf="@+id/easy_btn" />
+
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/leaderboard_rv"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        tools:listitem="@layout/leaderboard_item"
         android:layout_marginTop="16dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/easy_btn"
+        tools:listitem="@layout/leaderboard_item" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

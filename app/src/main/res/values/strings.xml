@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Memory game</string>
+    <string name="about">\tThis app can improve other brain functions, such as attention, concentration, and focus. Memory game gives space to critical thinking and that helps children nurture their attention to detail. Memory game can improve visual recognition.</string>
+    <string name="about2">\tThis application was created by Ravshan Bakhranov, a student of GITA Academy</string>
 </resources>

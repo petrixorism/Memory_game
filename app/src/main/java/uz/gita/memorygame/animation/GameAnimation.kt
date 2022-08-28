@@ -5,6 +5,7 @@ import android.view.View
 import android.view.View.VISIBLE
 import android.view.animation.AnticipateOvershootInterpolator
 import android.widget.ImageView
+import android.widget.TextView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.delay
@@ -67,19 +68,30 @@ class GameAnimation {
     }
 
     fun animateZoomOut(view: View) {
-        GlobalScope.launch(Dispatchers.Main) {
-            ValueAnimator.ofFloat(0f, 1f).apply {
-                addUpdateListener {
-                    view.alpha = animatedValue as Float
-                    view.scaleX = animatedValue as Float
-                    view.scaleY = animatedValue as Float
-                    view.visibility = VISIBLE
-                }
-                duration = 500L
-                interpolator = AnticipateOvershootInterpolator()
-                start()
-            }
 
+        ValueAnimator.ofFloat(0f, 1f).apply {
+            addUpdateListener {
+                view.alpha = animatedValue as Float
+                view.scaleX = animatedValue as Float
+                view.scaleY = animatedValue as Float
+                view.visibility = VISIBLE
+            }
+            duration = 500L
+            interpolator = AnticipateOvershootInterpolator()
+            start()
+        }
+
+
+    }
+
+    fun swipeExpand(view: TextView) {
+        ValueAnimator.ofFloat(.3f, 1f).apply {
+            addUpdateListener {
+                view.x = animatedValue as Float
+            }
+            duration = 500L
+            interpolator = AnticipateOvershootInterpolator()
+            start()
         }
     }
 

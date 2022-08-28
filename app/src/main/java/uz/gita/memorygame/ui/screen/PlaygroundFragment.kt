@@ -1,4 +1,4 @@
-package uz.gita.memorygame.ui
+package uz.gita.memorygame.ui.screen
 
 import android.annotation.SuppressLint
 import android.app.Dialog
@@ -11,33 +11,60 @@ import android.util.Log
 import android.view.View
 import android.view.View.VISIBLE
 import android.view.Window
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.ToggleButton
+import android.widget.*
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.navArgs
 import by.kirich1409.viewbindingdelegate.viewBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import uz.gita.memorygame.R
 import uz.gita.memorygame.animation.GameAnimation
+import uz.gita.memorygame.data.LeaderEntity
 import uz.gita.memorygame.databinding.FragmentPlaygroundBinding
+import uz.gita.memorygame.ui.viewmodel.PlaygroundViewModel
 
+@AndroidEntryPoint
 class PlaygroundFragment : Fragment(R.layout.fragment_playground) {
 
     private val binding by viewBinding(FragmentPlaygroundBinding::bind)
     private val animator by lazy { GameAnimation() }
     private val args by navArgs<PlaygroundFragmentArgs>()
     private var hits = 0
+    var isTopUser = false
+    private var currentTime = 0L
+    private var duration = 0L
 
+    private val viewModel: PlaygroundViewModel by viewModels()
 
     private lateinit var mediaPlayer: MediaPlayer
     var currentPos = 0
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+
+        lifecycleScope.launch {
+            viewModel.insertedFlow.collect {
+                Toast.makeText(
+                    requireContext(),
+                    "User has been added to leaderboard",
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
+        }
+        lifecycleScope.launch {
+
+            viewModel.isTopUser.collect() {
+                isTopUser = it
+
+            }
+            Log.d("TAGDF", "showWinDialog: $isTopUser")
+
+        }
+
 
 
         mediaPlayer = MediaPlayer.create(requireContext(), R.raw.lost_in_space)
@@ -78,7 +105,6 @@ class PlaygroundFragment : Fragment(R.layout.fragment_playground) {
         setImages(0L)
 
 
-
     }
 
 
@@ -88,7 +114,7 @@ class PlaygroundFragment : Fragment(R.layout.fragment_playground) {
 
         hits = 0
         var images = getList()
-
+        currentTime = System.currentTimeMillis()
 
         var counter = 0
         var ind = -1
@@ -98,9 +124,6 @@ class PlaygroundFragment : Fragment(R.layout.fragment_playground) {
         getImages().forEachIndexed { index, view ->
 
             view.setOnClickListener {
-
-                Log.d("TAGDF", "setImages: ${binding.chronometer.drawingTime}")
-
 
                 it as ImageView
                 if (it.tag.toString() == "close") {
@@ -116,8 +139,10 @@ class PlaygroundFragment : Fragment(R.layout.fragment_playground) {
 
                             if (counter == images.size / 2) {
                                 binding.confettiLottie.playAnimation()
-                                binding.chronometer.stop()
+                                duration = System.currentTimeMillis() - currentTime
+                                viewModel.finishGame(duration, args.level)
                                 showWinDialog()
+                                binding.chronometer.stop()
                             }
 
                         } else {
@@ -148,14 +173,10 @@ class PlaygroundFragment : Fragment(R.layout.fragment_playground) {
 
 
         }
-
-
     }
 
     private fun getImages(): List<ImageView> {
-
         val list = ArrayList<ImageView>()
-
         when (args.level) {
             "easy" -> {
                 for (i in 0..11) {
@@ -251,21 +272,51 @@ class PlaygroundFragment : Fragment(R.layout.fragment_playground) {
         dialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.win_dialog)
 
+
         val timeTv = dialog.findViewById<TextView>(R.id.time_tv)
         val hitsTv = dialog.findViewById<TextView>(R.id.hits_tv)
         val homeBtn = dialog.findViewById<Button>(R.id.home_button)
         val retryBtn = dialog.findViewById<Button>(R.id.retry_button)
+        val nameEt = dialog.findViewById<EditText>(R.id.name_et)
 //
         timeTv.text = "Time - ${binding.chronometer.text}"
         hitsTv.text = "Hits - ${this.hits}"
 
+
+        nameEt.isVisible = isTopUser
+
         homeBtn.setOnClickListener {
-            Log.d("TAGDF", "showWinDialog: clicked")
+            Log.d("TAGDF", "showWinDialog: $isTopUser")
+            if (isTopUser) {
+                viewModel.insertUserToLeaderboard(
+                    LeaderEntity(
+                        name = nameEt.text.toString(),
+                        duration = binding.chronometer.text.toString(),
+                        drawingTime = duration,
+                        category = args.level
+                    )
+                )
+            }
             dialog.dismiss()
             requireActivity().onBackPressed()
         }
 
         retryBtn.setOnClickListener {
+
+            Log.d("TAGDF", "showWinDialog: $isTopUser")
+
+
+            if (isTopUser) {
+                viewModel.insertUserToLeaderboard(
+                    LeaderEntity(
+                        name = nameEt.text.toString(),
+                        duration = binding.chronometer.text.toString(),
+                        drawingTime = duration,
+                        category = args.level
+                    )
+                )
+            }
+
             dialog.dismiss()
             binding.scoreTv.text = "Hits : 0"
             binding.chronometer.base = SystemClock.elapsedRealtime()

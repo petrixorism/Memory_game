@@ -7,6 +7,9 @@ import androidx.room.PrimaryKey
 data class LeaderEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val time: Long,
-    val duration: Long = System.currentTimeMillis()
+    val name: String = "",
+    val duration: String = "",
+    val time: Long = System.currentTimeMillis(),
+    val drawingTime: Long = 0L,
+    val category: String
 )

@@ -7,22 +7,36 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="uz.gita.memorygame.ui.HomeFragment"
+        android:name="uz.gita.memorygame.ui.screen.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_playgroundFragment"
             app:destination="@id/playgroundFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_leaderboardFragment"
+            app:destination="@id/leaderboardFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_aboutFragment"
+            app:destination="@id/aboutFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/playgroundFragment"
-        android:name="uz.gita.memorygame.ui.PlaygroundFragment"
+        android:name="uz.gita.memorygame.ui.screen.PlaygroundFragment"
         android:label="PlaygroundFragment"
         tools:layout="@layout/fragment_playground" >
         <argument
             android:name="level"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/leaderboardFragment"
+        android:name="uz.gita.memorygame.ui.screen.LeaderboardFragment"
+        android:label="LeaderboardFragment" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="uz.gita.memorygame.ui.screen.AboutFragment"
+        android:label="AboutFragment" />
 
 </navigation>

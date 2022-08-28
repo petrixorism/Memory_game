@@ -1,24 +1,21 @@
 package uz.gita.memorygame.data
 
+import android.util.Log
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class LeaderboardRepository @Inject constructor(val db: LeaderboardDao) {
+class LeaderboardRepository @Inject constructor(val dao: LeaderboardDao) {
 
-    fun insertLeaderBoard(leaderEntity: LeaderEntity) = flow {
-        db.insert(leaderEntity)
-        emit(Unit)
+    fun insertLeaderBoard(leaderEntity: LeaderEntity) {
+        dao.insert(leaderEntity)
+
     }
 
-    fun deleteLeaderboard(leaderEntity: LeaderEntity) = flow {
-        db.insert(leaderEntity)
-        emit(Unit)
+    fun deleteLeaderboard(leaderEntity: LeaderEntity) {
+        dao.delete(leaderEntity)
     }
 
-    fun getLeaderBoard() = flow {
-        db.getLeaderBoards().collect() {
-            emit(it)
-        }
-    }
+    fun getLeaderBoardList(category: String) = dao.getLeaderBoardsList(category)
+
 
 }
