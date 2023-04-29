@@ -10,7 +10,7 @@ android {
     compileSdk 32
 
     defaultConfig {
-        applicationId "uz.gita.memorygame"
+        applicationId "uz.ravshanbaxranov.memorygame"
         minSdk 21
         targetSdk 32
         versionCode 1
@@ -93,4 +93,7 @@ dependencies {
     // Lottie animation
 
     implementation "com.airbnb.android:lottie:3.4.0"
+
+    implementation 'com.ramotion.circlemenu:circle-menu:0.3.2'
+
 }

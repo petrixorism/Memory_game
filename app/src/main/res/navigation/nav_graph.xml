@@ -7,36 +7,50 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="uz.gita.memorygame.ui.screen.HomeFragment"
+        android:name="uz.ravshanbaxranov.memorygame.ui.screen.HomeFragment"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home">
         <action
             android:id="@+id/action_homeFragment_to_playgroundFragment"
-            app:destination="@id/playgroundFragment" />
+            app:destination="@id/playgroundFragment"
+            app:enterAnim="@anim/from_left"
+            app:exitAnim="@anim/to_left"
+            app:popEnterAnim="@anim/from_right"
+            app:popExitAnim="@anim/to_right" />
         <action
             android:id="@+id/action_homeFragment_to_leaderboardFragment"
-            app:destination="@id/leaderboardFragment" />
+            app:destination="@id/leaderboardFragment"
+            app:enterAnim="@anim/from_right"
+            app:exitAnim="@anim/to_right"
+            app:popEnterAnim="@anim/from_left"
+            app:popExitAnim="@anim/to_left" />
         <action
             android:id="@+id/action_homeFragment_to_aboutFragment"
-            app:destination="@id/aboutFragment" />
+            app:destination="@id/aboutFragment"
+            app:enterAnim="@anim/alpha_in"
+            app:exitAnim="@anim/alpha_out"
+            app:popEnterAnim="@anim/alpha_in"
+            app:popExitAnim="@anim/alpha_out" />
     </fragment>
 
     <fragment
         android:id="@+id/playgroundFragment"
-        android:name="uz.gita.memorygame.ui.screen.PlaygroundFragment"
+        android:name="uz.ravshanbaxranov.memorygame.ui.screen.PlaygroundFragment"
         android:label="PlaygroundFragment"
-        tools:layout="@layout/fragment_playground" >
+        tools:layout="@layout/fragment_playground">
         <argument
             android:name="level"
             app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/leaderboardFragment"
-        android:name="uz.gita.memorygame.ui.screen.LeaderboardFragment"
+        tools:layout="@layout/fragment_leaderboards"
+        android:name="uz.ravshanbaxranov.memorygame.ui.screen.LeaderboardFragment"
         android:label="LeaderboardFragment" />
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="uz.gita.memorygame.ui.screen.AboutFragment"
+        tools:layout="@layout/fragment_about"
+        android:name="uz.ravshanbaxranov.memorygame.ui.screen.AboutFragment"
         android:label="AboutFragment" />
 
 </navigation>
